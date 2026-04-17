@@ -22,7 +22,7 @@ Plataforma completa para campañas de phishing simuladas con fines educativos.
 | Service | URL |
 |---------|-----|
 
-| GoPhish | https://localhost:3333/campaigns |
+| GoPhish | https://localhost:3333/campaigns | #Primero activar el contenedor por medio de portainer debido a que lo gestione como servidor principal una vez que se active se podra acceder al portal de gophish.
 
 | Portainer | https://localhost:9443 |
 
