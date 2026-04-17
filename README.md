@@ -1,4 +1,4 @@
-# GoPhish
+# KAZER (CAMPAÑA DE PHISHING)
 Repositorio final de proyecto
 
 # Phishing Automation Platform
