@@ -1,0 +1,8 @@
+jenkins_data/
+mariadb_data/
+db/
+*.db
+portainer-compose.yaml
+Dockerfile.gophish
+Makefile
+config.json
