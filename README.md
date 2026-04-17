@@ -14,3 +14,13 @@ La infraestructura se compone de los siguientes servicios orquestados con Docker
 *   **Zabbix**: Monitorea las métricas clave (clics, credenciales) y genera alertas.
 *   **MailHog**: Captura los correos salientes para pruebas en entornos controlados.
 *   **Portainer**: Interfaz gráfica para la gestión de contenedores Docker.
+
+
+## Accesos Rápidos a los Servicios
+
+| Servicio | URL | Username | Password |
+|----------|-----|----------|----------|
+| GoPhish | https://localhost:3333 | admin | Phishing2026! |
+| Jenkins | http://localhost:8081 | admin | Jenkins |
+| Zabbix | http://localhost:8090 | Admin | zabbix |
+| Portainer | https://localhost:9443 | admin | Blackmisael1@ |
