@@ -1,0 +1,15 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y wget unzip ca-certificates && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/gophish
+
+RUN wget https://github.com/gophish/gophish/releases/download/v0.12.1/gophish-v0.12.1-linux-64bit.zip && \
+    unzip gophish-v0.12.1-linux-64bit.zip && \
+    rm gophish-v0.12.1-linux-64bit.zip && \
+    chmod +x gophish
+
+EXPOSE 3333 80
+
+CMD ["./gophish"]
+
