@@ -1,6 +1,8 @@
 # KAZER (CAMPAÑA DE PHISHING)
 Repositorio final de proyecto para la clase de automatizacion de redes digitales.
+
 Equipo: Misael Alejandro Haro Marquez y Raul Jesus Vasquez Garcia
+
 10D
 # Phishing Automation Platform
 
