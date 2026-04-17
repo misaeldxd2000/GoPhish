@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+  # MariaDB para Zabbix
+  mariadb:
+    image: mariadb:10.5
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: zabbix
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+    networks:
+      - monitoring
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Zabbix Server
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:ubuntu-6.4-latest
+    container_name: zabbix-server
+    restart: unless-stopped
+    environment:
+      DB_SERVER_HOST: mariadb
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+      MYSQL_DATABASE: zabbix
+    ports:
+      - "10051:10051"
+    networks:
+      - monitoring
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  # Zabbix Frontend
+  zabbix-frontend:
+    image: zabbix/zabbix-web-apache-mysql:ubuntu-6.4-latest
+    container_name: zabbix-frontend
+    restart: unless-stopped
+    environment:
+      DB_SERVER_HOST: mariadb
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+      MYSQL_DATABASE: zabbix
+      ZBX_SERVER_HOST: zabbix-server
+      PHP_TZ: America/Mexico_City
+    ports:
+      - "8090:8080"
+    networks:
+      - monitoring
+    depends_on:
+      - zabbix-server
+
+  # Jenkins
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    container_name: jenkins
+    restart: unless-stopped
+    user: root
+    ports:
+      - "8081:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - monitoring
+
+  # GoPhish
+  gophish:
+    image: gophish/gophish:latest
+    container_name: gophish
+    restart: unless-stopped
+    ports:
+      - "3333:3333"
+      - "8080:80"
+    volumes:
+      - ./gophish_data:/opt/gophish
+    networks:
+      - monitoring
+
+  # MailHog
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    restart: unless-stopped
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
