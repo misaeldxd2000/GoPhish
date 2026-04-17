@@ -1,5 +1,8 @@
 
-# 🎣 Phishing Automation Platform
+# KAZER (CAMPAÑA DE PHISHING) 10 D
+
+# Nombre De Los Integrantes: Misael Alejandro Haro Marquez y Raul Jesus Vasquez Rodriguez
+
 
 Plataforma completa para campañas de phishing simuladas con fines educativos.
 
