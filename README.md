@@ -3,7 +3,7 @@ Repositorio final de proyecto para la clase de automatizacion de redes digitales
 
 Equipo: Misael Alejandro Haro Marquez y Raul Jesus Vasquez Garcia
 
-10D
+GRUPO: 10D
 # Phishing Automation Platform
 
 Plataforma completa para campañas de phishing simuladas con fines educativos. Automatiza el envío, monitoreo y análisis de campañas usando Docker, Jenkins, Zabbix.
