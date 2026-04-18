@@ -1,73 +1,53 @@
+# KAZER (CAMPAÑA DE PHISHING)
 
-# KAZER (CAMPAÑA DE PHISHING) 10 D
+Repositorio final de proyecto para la clase de automatizacion de redes digitales.
 
-# Nombre De Los Integrantes: Misael Alejandro Haro Marquez y Raul Jesus Vasquez Rodriguez
+**Equipo:** Misael Alejandro Haro Marquez y Raul Jesus Vasquez Garcia  
+**Grupo:** 10D
 
+---
 
-Plataforma completa para campañas de phishing simuladas con fines educativos.
+## Phishing Automation Platform
 
-- [Arquitectura](#arquitectura)
+Plataforma completa para campañas de phishing simuladas con fines educativos. Automatiza el envio, monitoreo y analisis de campañas usando Docker, Jenkins, Zabbix.
 
-- [Requisitos](#requisitos)
+---
 
-- [Instalación](#instalación)
+## Arquitectura del Proyecto
 
-- [Configuración](#configuración)
+La infraestructura se compone de los siguientes servicios orquestados con Docker:
 
-- [Uso](#uso)
+| Servicio | Descripcion |
+|----------|-------------|
+| **GoPhish** | Servidor principal para crear y gestionar campañas de phishing |
+| **Jenkins** | Automatiza la creacion de campañas y el pipeline de trabajo |
+| **Zabbix** | Monitorea las metricas clave (clics, credenciales) y genera alertas |
+| **Portainer** | Interfaz grafica para la gestion de contenedores Docker |
 
-- [Monitoreo](#monitoreo)
+---
 
-- [Seguridad](#seguridad)
+## Accesos Rapidos a los Servicios
 
-# Servicios
+| Servicio | URL | Username | Password |
+|----------|-----|----------|----------|
+| GoPhish | https://localhost:3333 | admin | Phishing2026! |
+| Jenkins | http://localhost:8081 | admin | Jenkins |
+| Zabbix | http://localhost:8090 | Admin | zabbix |
+| Portainer | https://localhost:9443 | admin | Blackmisael1@ |
 
-| Service | URL |
-|---------|-----|
+---
 
-| GoPhish | https://localhost:3333/campaigns | #Primero activar el contenedor por medio de portainer debido a que lo gestione como servidor principal una vez que se active se podra acceder al portal de gophish.
+## Tecnologias Utilizadas
 
-| Portainer | https://localhost:9443 |
+- Docker / Docker Compose
+- GoPhish
+- Jenkins
+- Zabbix
+- Portainer
+- Ubuntu / WSL2
 
-| Jenkins | http://localhost:8081/job/Phishing-Automation/ |
+---
 
-| Zabbix | http://localhost:8090/zabbix.php?action=dashboard.view |
+## Repositorio
 
-## Credentials
-
-| Service | Username | Password |
-
-|---------|----------|----------|
-
-GoPhish
-
-URL: https://localhost:3333
-
-User: admin
-
-Password: Phishing2026!
-
-Zabbix
-
-URL: http://localhost:8090
-
-User: Admin
-
-Password: zabbix
-
-Portainer
-
-URL: https://localhost:9443
-
-User: admin
-
-Password: Blackmisael1@
-
-Jenkins
-
-URL: http://localhost:8081
-
-User: admin
-
-Password: Jenkins
-
+https://github.com/misaeldxd2000/GoPhish
